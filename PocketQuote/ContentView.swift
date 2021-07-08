@@ -8,9 +8,32 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @ObservedObject var  networkManager = NetworkManager()
+
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        ZStack{
+            VStack{
+                Spacer()
+                Text(networkManager.quoteText)
+                    .frame(width: UIScreen.main.bounds.size.width-50, height: UIScreen.main.bounds.size.height/2, alignment: .center)
+                    .padding(.all)
+                Text(networkManager.quoteAuthor)
+                    .padding()
+                
+                Spacer()
+                Button("Next Quote") {
+                    networkManager.fetchData()
+                }
+                .padding()
+                .background(Color(red: 0, green: 0, blue: 0.5))
+                .clipShape(Capsule())
+                Spacer()
+            }.onAppear{
+                self.networkManager.fetchData()
+            }
+        }
     }
 }
 
