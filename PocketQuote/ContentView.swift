@@ -20,32 +20,42 @@ struct ContentView: View {
             VStack{
                 Spacer()
                 VStack{
-                    
                     if fadeInOut{
-                        Text(networkManager.quoteText)
-                            .frame(width: UIScreen.main.bounds.size.width-50, height: UIScreen.main.bounds.size.height/2, alignment: .center)
-                            .padding(.all)
-                            .foregroundColor(.white)
-                            .font(.system(size: 20))
-                            .transition(AnyTransition.opacity.animation(.easeInOut(duration: 1.0)))
+                        ScrollView{
+                            Text(networkManager.quoteText)
+                                .padding(.all)
+                                .foregroundColor(.white)
+                                .font(.system(size: 25))
+                                .lineSpacing(15.0)
+                        }
+                        .frame(width: UIScreen.main.bounds.size.width-50, height: UIScreen.main.bounds.size.height/2, alignment: .center)
+                        .transition(AnyTransition.opacity.animation(.easeInOut(duration: 1.0)))
+                        
+                        
                             
                         Text(networkManager.quoteAuthor)
                             .padding()
                             .foregroundColor(.white)
+                            .font(.system(size: 25))
                             .transition(AnyTransition.opacity.animation(.easeInOut(duration: 1.5)))
+                            
                     }
                     
                     if !fadeInOut{
-                        Text(networkManager.quoteText)
-                            .frame(width: UIScreen.main.bounds.size.width-50, height: UIScreen.main.bounds.size.height/2, alignment: .center)
-                            .padding(.all)
-                            .foregroundColor(.white)
-                            .font(.system(size: 20))
-                            .transition(AnyTransition.opacity.animation(.easeInOut(duration: 1.0)))
-                            
+                        ScrollView{
+                            Text(networkManager.quoteText)
+                                .padding(.all)
+                                .foregroundColor(.white)
+                                .font(.system(size: 25))
+                                .lineSpacing(15.0)
+                        }
+                        .frame(width: UIScreen.main.bounds.size.width-50, height: UIScreen.main.bounds.size.height/2, alignment: .center)
+                        .transition(AnyTransition.opacity.animation(.easeInOut(duration: 1.0)))
+                        
                         Text(networkManager.quoteAuthor)
                             .padding()
                             .foregroundColor(.white)
+                            .font(.system(size: 25))
                             .transition(AnyTransition.opacity.animation(.easeInOut(duration: 1.5)))
                     }
                     
